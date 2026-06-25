@@ -32,7 +32,7 @@ const TEST_SENTENCES: Array<{ text: string; cutoff: number; question: string }> 
     question: "Что модель видит, когда предсказывает 3-е слово?",
   },
   {
-    text: "мама готовила",
+    text: "мама готовила ужин",
     cutoff: 2,
     question: "Модель угадывает 3-е слово. Что она знает?",
   },

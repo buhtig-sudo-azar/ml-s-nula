@@ -59,3 +59,6 @@ server.log
 
 # Internal dev artifacts
 .zscripts/dev.pid
+
+# Local test/screenshot scripts (not part of project)
+/scripts/
