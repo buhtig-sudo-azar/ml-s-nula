@@ -24,6 +24,7 @@ import {
   Brain,
   Sparkles,
   ArrowDown,
+  ArrowUpRight,
   Github,
   Heart,
   Trash2,
@@ -127,6 +128,20 @@ function Hero() {
             <FlaskConical className="h-3 w-3 mr-1" />
             10 живых песочниц
           </Badge>
+          <a
+            href="https://tokenizatsiya-app.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex"
+          >
+            <Badge
+              variant="secondary"
+              className="bg-purple-50 border-purple-200 text-purple-800 dark:bg-purple-950/50 dark:border-purple-800/60 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/60 cursor-pointer transition-colors"
+            >
+              <ArrowUpRight className="h-3 w-3 mr-1" />
+              Продолжение: курс о токенизации
+            </Badge>
+          </a>
           <Badge variant="secondary" className="bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-950/50 dark:border-rose-800/60 dark:text-rose-300">
             <Brain className="h-3 w-3 mr-1" />
             Без формул — сначала смысл

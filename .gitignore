@@ -66,5 +66,8 @@ server.log
 # Temporary working directories (clones of other repos, etc.)
 /tmp-work/
 
+# Separate project: tokenizatsiya-app (own repo, own Vercel deploy)
+/tokenizatsiya-app/
+
 # Database
 /db/

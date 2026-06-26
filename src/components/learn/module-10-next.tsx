@@ -4,7 +4,10 @@ import { ModuleShell, TheoryBlock, SandboxBlock, GoalBlock } from "@/components/
 import { ACCENTS } from "@/components/learn/accents";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, ArrowRight, FunctionSquare, GitBranch, Repeat, Gauge } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, ArrowRight, FunctionSquare, GitBranch, Repeat, Gauge, Type } from "lucide-react";
+
+const TOKENIZATSIIA_URL = "https://tokenizatsiya-app.vercel.app/";
 
 const NEXT_TOPICS = [
   {
@@ -161,6 +164,51 @@ export function Module10Next() {
           песочницы на русском и английском — в конце страницы.
         </p>
       </div>
+
+      {/* Ссылка на продолжение темы: токенизация */}
+      <a
+        href={TOKENIZATSIIA_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <Card className="p-5 border-2 border-purple-300 dark:border-purple-800/80 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950/40 dark:to-fuchsia-950/40 hover:shadow-lg hover:border-purple-400 transition-all">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-600 text-white shadow-md">
+              <Type className="h-6 w-6" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <Badge className="bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/50 dark:text-purple-300 dark:border-purple-800/60">
+                  Продолжение темы
+                </Badge>
+                <Badge variant="outline" className="text-[10px] font-mono">
+                  9 модулей · новая песочница
+                </Badge>
+              </div>
+              <h3 className="font-bold text-lg text-foreground">
+                Токенизация — как машины читают текст
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                Отдельное приложение про то, как текст превращается в токены и
+                числа, которыми оперируют GPT, BERT и Llama. Живые песочницы BPE
+                и WordPiece прямо в браузере, разбор спецтокенов
+                <code className="mx-1 px-1 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-mono text-xs">&lt;PAD&gt;</code>
+                <code className="mx-1 px-1 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-mono text-xs">&lt;UNK&gt;</code>
+                <code className="mx-1 px-1 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-mono text-xs">[CLS]</code>
+                и каталог токенизаторов популярных моделей.
+              </p>
+              <div className="flex items-center gap-1.5 mt-3 text-purple-700 dark:text-purple-300">
+                <span className="text-sm font-medium">Открыть курс</span>
+                <ArrowUpRight className="h-4 w-4" />
+                <span className="text-xs font-mono ml-1 text-muted-foreground">
+                  tokenizatsiya-app.vercel.app
+                </span>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </a>
     </ModuleShell>
   );
 }
