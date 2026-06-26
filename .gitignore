@@ -62,3 +62,9 @@ server.log
 
 # Local test/screenshot scripts (not part of project)
 /scripts/
+
+# Temporary working directories (clones of other repos, etc.)
+/tmp-work/
+
+# Database
+/db/

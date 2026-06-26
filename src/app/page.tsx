@@ -132,7 +132,7 @@ function Hero() {
             Без формул — сначала смысл
           </Badge>
           <Badge variant="secondary" className="bg-violet-50 border-violet-200 text-violet-800 dark:bg-violet-950/50 dark:border-violet-800/60 dark:text-violet-300">
-            32 бесплатных ресурса
+            32 ресурса для изучения
           </Badge>
           <Badge variant="secondary" className="bg-emerald-50 border-emerald-200 text-emerald-800 dark:bg-emerald-950/50 dark:border-emerald-800/60 dark:text-emerald-300">
             Прогресс сохраняется
@@ -229,7 +229,7 @@ function SiteFooter() {
         <p className="text-xs mt-3 max-w-3xl">
           Все песочницы работают прямо в браузере на чистом JavaScript (React + TypeScript).
           Прогресс сохраняется локально в localStorage — твои ответы и метки
-          не уходят на сервер. Кураторские ссылки на бесплатные ресурсы
+          не уходят на сервер. Кураторские ссылки на ресурсы для изучения
           собраны из живого веб-поиска и проверены на актуальность.
         </p>
 

@@ -39,6 +39,7 @@ export function Module04Training() {
   const [weight, setWeight] = useState(0.5);
   const [epoch, setEpoch] = useState(0);
   const [learningRate, setLearningRate] = useState(0.05);
+  const [targetEpochs, setTargetEpochs] = useState(50);
   const [autoPlay, setAutoPlay] = useState(false);
   const [history, setHistory] = useState<number[]>([]);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -70,7 +71,13 @@ export function Module04Training() {
     setHistory((h) => [...h, mse]);
   }
 
+  // Автоплей сам останавливается, когда достигнуто целевое количество эпох.
   useEffect(() => {
+    if (autoPlay && epoch >= targetEpochs) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- легитимная остановка автоплея при достижении цели
+      setAutoPlay(false);
+      return;
+    }
     if (autoPlay) {
       timerRef.current = setInterval(() => {
         trainStep();
@@ -82,7 +89,7 @@ export function Module04Training() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [autoPlay, learningRate]);
+  }, [autoPlay, learningRate, epoch, targetEpochs]);
 
   function reset() {
     setAutoPlay(false);
@@ -93,6 +100,7 @@ export function Module04Training() {
 
   const converged = mse < 0.05;
   const diverged = !isFinite(weight) || Math.abs(weight) > 100;
+  const targetReached = epoch >= targetEpochs;
 
   return (
     <ModuleShell
@@ -250,7 +258,7 @@ export function Module04Training() {
                   {mse.toFixed(3)}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  эпох: {epoch}
+                  эпох: {epoch} / {targetEpochs}
                 </div>
               </div>
             </div>
@@ -269,6 +277,24 @@ export function Module04Training() {
               />
               <p className="text-xs text-muted-foreground mt-1">
                 Маленький → медленно, но уверенно. Большой → быстро, но может разойтись.
+              </p>
+            </div>
+
+            <div>
+              <div className="flex justify-between text-xs mb-1">
+                <Label>Количество эпох (цель)</Label>
+                <span className="font-mono font-semibold">{targetEpochs}</span>
+              </div>
+              <Slider
+                value={[targetEpochs]}
+                min={5}
+                max={200}
+                step={5}
+                onValueChange={(v) => setTargetEpochs(v[0])}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Автоплей остановится после {targetEpochs} эпох. Можно жать «Шаг» и
+                дальше — лимит действует только на автоплей.
               </p>
             </div>
 
@@ -306,9 +332,15 @@ export function Module04Training() {
               </Button>
             </div>
 
-            {converged && (
+            {converged && !targetReached && (
               <div className="text-sm text-emerald-700 dark:text-emerald-300 font-medium bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-800/60 rounded p-2">
                 Модель сошлась! Вес ≈ 2, ошибка почти нулевая.
+              </div>
+            )}
+            {targetReached && !diverged && (
+              <div className="text-sm text-amber-700 dark:text-amber-300 font-medium bg-amber-50 border border-amber-200 dark:bg-amber-950/40 dark:border-amber-800/60 rounded p-2">
+                Цикл обучения завершён: пройдено {targetEpochs} эпох. Жми
+                «Шаг», чтобы продолжить, или «Сброс», чтобы начать заново.
               </div>
             )}
             {diverged && (

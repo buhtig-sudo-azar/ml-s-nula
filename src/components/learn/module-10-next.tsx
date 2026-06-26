@@ -154,7 +154,7 @@ export function Module10Next() {
 
       <div className="rounded-lg border-2 border-dashed border-red-200 bg-red-50/50 dark:border-red-800/60 dark:bg-red-950/30 p-4 text-center">
         <div className="text-xs uppercase tracking-wide text-red-700 dark:text-red-300 font-semibold mb-1">
-          Полный каталог бесплатных ресурсов — ниже
+          Полный каталог ресурсов — ниже
         </div>
         <p className="text-sm text-muted-foreground">
           32 проверенные ссылки: курсы, видео, книги и интерактивные
