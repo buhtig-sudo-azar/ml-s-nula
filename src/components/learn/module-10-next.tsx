@@ -8,6 +8,56 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ArrowRight, FunctionSquare, GitBranch, Repeat, Gauge, Type } from "lucide-react";
 
 const TOKENIZATSIIA_URL = "https://tokenizatsiya-app.vercel.app/";
+const EMBEDDINGS_APP_URL = "https://embeddings-app.vercel.app/";
+const TRANSFORMERS_APP_URL = "https://transformers-architecture.vercel.app/";
+const NN_LEARNING_APP_URL = "https://nn-learning-app.vercel.app/";
+
+const SERIES: Array<{
+  n: number;
+  title: string;
+  url: string;
+  color: string;
+  border: string;
+  bg: string;
+  desc: string;
+}> = [
+  {
+    n: 2,
+    title: "Токенизация",
+    url: TOKENIZATSIIA_URL,
+    color: "text-purple-700 dark:text-purple-300",
+    border: "border-purple-300 dark:border-purple-800/60",
+    bg: "bg-purple-50 dark:bg-purple-950/40",
+    desc: "BPE, WordPiece, SentencePiece, byte-level. Как текст становится токенами и ID.",
+  },
+  {
+    n: 3,
+    title: "Эмбеддинги и attention",
+    url: EMBEDDINGS_APP_URL,
+    color: "text-emerald-700 dark:text-emerald-300",
+    border: "border-emerald-300 dark:border-emerald-800/60",
+    bg: "bg-emerald-50 dark:bg-emerald-950/40",
+    desc: "Как ID становятся векторами, cosine similarity, word2vec, self-attention, multi-head, GPT/BERT, fine-tuning/RLHF.",
+  },
+  {
+    n: 4,
+    title: "Трансформеры — архитектура целиком",
+    url: TRANSFORMERS_APP_URL,
+    color: "text-amber-700 dark:text-amber-300",
+    border: "border-amber-300 dark:border-amber-800/60",
+    bg: "bg-amber-50 dark:bg-amber-950/40",
+    desc: "Q/K/V проекции, causal и padding маски, FFN, residual+LayerNorm, encoder/decoder, RoPE, forward pass, BERT/GPT/T5.",
+  },
+  {
+    n: 5,
+    title: "Как нейросети учатся",
+    url: NN_LEARNING_APP_URL,
+    color: "text-rose-700 dark:text-rose-300",
+    border: "border-rose-300 dark:border-rose-800/60",
+    bg: "bg-rose-50 dark:bg-rose-950/40",
+    desc: "Loss, backprop, оптимизаторы (SGD→AdamW), LR schedules, нормализация, регуляризация, gradient clipping, mixed precision.",
+  },
+];
 
 const NEXT_TOPICS = [
   {
@@ -209,6 +259,49 @@ export function Module10Next() {
           </div>
         </Card>
       </a>
+
+      {/* Полная серия курсов — куда расти дальше после токенизации */}
+      <div className="rounded-lg border-2 border-dashed border-teal-300 dark:border-teal-800/60 bg-teal-50/50 dark:bg-teal-950/30 p-5">
+        <div className="text-xs uppercase tracking-wide text-teal-700 dark:text-teal-300 font-semibold mb-2">
+          Серия курсов · куда расти после токенизации
+        </div>
+        <p className="text-sm text-muted-foreground mb-4 max-w-2xl leading-relaxed">
+          Этот курс — первый в серии из пяти интерактивных приложений,
+          выстроенных в линейную цепочку. Каждое следующее продолжает
+          предыдущее — Hero-бейдж и блок «Что дальше» направляют к
+          следующему курсу. Ниже — три курса, которые идут после
+          «Токенизации».
+        </p>
+        <div className="grid sm:grid-cols-1 gap-2">
+          {SERIES.filter((s) => s.n >= 3).map((s) => (
+            <a
+              key={s.n}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`block rounded-md p-3 border-2 ${s.border} ${s.bg} hover:shadow-md transition-all`}
+            >
+              <div className="flex items-start gap-3">
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-mono font-bold text-sm ${s.color} ${s.bg} border ${s.border}`}>
+                  {s.n}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className={`font-bold text-sm ${s.color}`}>
+                    {s.title}
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                    {s.desc}
+                  </p>
+                  <div className={`flex items-center gap-1 mt-1.5 text-xs font-mono ${s.color}`}>
+                    <ArrowUpRight className="h-3 w-3" />
+                    {s.url.replace("https://", "").replace("/", "")}
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
     </ModuleShell>
   );
 }
