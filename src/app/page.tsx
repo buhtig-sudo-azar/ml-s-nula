@@ -252,7 +252,7 @@ function SiteFooter() {
           Все песочницы работают прямо в браузере на чистом JavaScript (React + TypeScript).
           Прогресс сохраняется локально в localStorage — твои ответы и метки
           не уходят на сервер. Кураторские ссылки на ресурсы для изучения
-          собраны из живого веб-поиска и проверены на актуальность. Это приложение — первый курс в серии из семи:{" "}
+          собраны из живого веб-поиска и проверены на актуальность. Это приложение — первый курс в серии из десяти:{" "}
           <strong className="text-foreground">«ML с нуля»</strong>
           {" → "}<a href={TOKENIZATSIIA_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Токенизация»</a>
           {" → "}<a href={EMBEDDINGS_APP_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Эмбеддинги и attention»</a>
