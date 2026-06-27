@@ -11,6 +11,7 @@ const TOKENIZATSIIA_URL = "https://tokenizatsiya-app.vercel.app/";
 const EMBEDDINGS_APP_URL = "https://embeddings-app.vercel.app/";
 const TRANSFORMERS_APP_URL = "https://transformers-architecture.vercel.app/";
 const NN_LEARNING_APP_URL = "https://nn-learning-app.vercel.app/";
+const LLM_APP_URL = "https://llms-app.vercel.app/";
 
 const SERIES: Array<{
   n: number;
@@ -56,6 +57,15 @@ const SERIES: Array<{
     border: "border-rose-300 dark:border-rose-800/60",
     bg: "bg-rose-50 dark:bg-rose-950/40",
     desc: "Loss, backprop, оптимизаторы (SGD→AdamW), LR schedules, нормализация, регуляризация, gradient clipping, mixed precision.",
+  },
+  {
+    n: 6,
+    title: "Большие языковые модели",
+    url: LLM_APP_URL,
+    color: "text-blue-700 dark:text-blue-300",
+    border: "border-blue-300 dark:border-blue-800/60",
+    bg: "bg-blue-50 dark:bg-blue-950/40",
+    desc: "Pretraining и next-token prediction, scaling laws (Kaplan/Chinchilla), KV-cache, sampling (temperature/top-k/top-p), in-context learning, hallucinations и RAG, prompt engineering и CoT, SFT/RLHF/DPO.",
   },
 ];
 
@@ -266,10 +276,10 @@ export function Module10Next() {
           Серия курсов · куда расти после токенизации
         </div>
         <p className="text-sm text-muted-foreground mb-4 max-w-2xl leading-relaxed">
-          Этот курс — первый в серии из пяти интерактивных приложений,
+          Этот курс — первый в серии из семи интерактивных приложений,
           выстроенных в линейную цепочку. Каждое следующее продолжает
           предыдущее — Hero-бейдж и блок «Что дальше» направляют к
-          следующему курсу. Ниже — три курса, которые идут после
+          следующему курсу. Ниже — четыре курса, которые идут после
           «Токенизации».
         </p>
         <div className="grid sm:grid-cols-1 gap-2">

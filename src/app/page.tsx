@@ -32,6 +32,13 @@ import {
   FlaskConical,
 } from "lucide-react";
 
+const TOKENIZATSIIA_URL = "https://tokenizatsiya-app.vercel.app/";
+const EMBEDDINGS_APP_URL = "https://embeddings-app.vercel.app/";
+const TRANSFORMERS_URL = "https://transformers-architecture.vercel.app/";
+const NN_LEARNING_URL = "https://nn-learning-app.vercel.app/";
+const LLM_APP_URL = "https://llms-app.vercel.app/";
+const ALIGNMENT_URL = "https://alignment-app.vercel.app/";
+
 function Hero() {
   const { completedCount, totalCount, hydrated, resetAll } = useProgress();
   const progressPct = hydrated ? (completedCount / totalCount) * 100 : 0;
@@ -245,7 +252,15 @@ function SiteFooter() {
           Все песочницы работают прямо в браузере на чистом JavaScript (React + TypeScript).
           Прогресс сохраняется локально в localStorage — твои ответы и метки
           не уходят на сервер. Кураторские ссылки на ресурсы для изучения
-          собраны из живого веб-поиска и проверены на актуальность.
+          собраны из живого веб-поиска и проверены на актуальность. Это приложение — первый курс в серии из семи:{" "}
+          <strong className="text-foreground">«ML с нуля»</strong>
+          {" → "}<a href={TOKENIZATSIIA_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Токенизация»</a>
+          {" → "}<a href={EMBEDDINGS_APP_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Эмбеддинги и attention»</a>
+          {" → "}<a href={TRANSFORMERS_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Трансформеры»</a>
+          {" → "}<a href={NN_LEARNING_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Как нейросети учатся»</a>
+          {" → "}<a href={LLM_APP_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Большие языковые модели»</a>
+          {" → "}<a href={ALIGNMENT_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-700 dark:hover:text-teal-300">«Адаптация и alignment»</a>
+          .
         </p>
 
         {/* Подпись создателя — по центру, отдельной строкой */}
