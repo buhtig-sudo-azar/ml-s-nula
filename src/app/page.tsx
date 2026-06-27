@@ -37,7 +37,7 @@ const EMBEDDINGS_APP_URL = "https://embeddings-app.vercel.app/";
 const TRANSFORMERS_URL = "https://transformers-architecture.vercel.app/";
 const NN_LEARNING_URL = "https://nn-learning-app.vercel.app/";
 const LLM_APP_URL = "https://llms-app.vercel.app/";
-const ALIGNMENT_URL = "https://alignment-app.vercel.app/";
+const ALIGNMENT_URL = "https://alignment-safety.vercel.app/";
 
 function Hero() {
   const { completedCount, totalCount, hydrated, resetAll } = useProgress();
